@@ -6,24 +6,24 @@ import {
   View,
   ScrollView,
   Image,
+  Pressable,
 } from 'react-native';
 
+import { Link } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import MiniPlayer from '@/components/MiniPlayer';
 
-// Playlist and album images
+// Album and playlist images
+const halloween = require('../../assets/images/halloween-after-dark.png');
 const habibti = require('../../assets/images/habibti.jpg');
 const excavator = require('../../assets/images/excavator.jpg');
 const coldShoulder = require('../../assets/images/cold-shoulder.jpg');
 const halfThePlot = require('../../assets/images/half-the-plot.jpg');
-const ba = require('../../assets/images/ba.jpg');
+const appleRadio = require('../../assets/images/apple-radio.png');
 
 export default function HomeScreen() {
   return (
-    <SafeAreaView
-      style={styles.container}
-      edges={['top']}
-    >
+    <SafeAreaView style={styles.container} edges={['top']}>
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.scrollContent}
@@ -31,7 +31,7 @@ export default function HomeScreen() {
         {/* Home heading */}
         <Text style={styles.title}>Home</Text>
 
-        {/* Top Picks for you */}
+        {/* TOP PICKS FOR YOU */}
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>
             Top Picks for You
@@ -42,72 +42,78 @@ export default function HomeScreen() {
             showsHorizontalScrollIndicator={false}
             contentContainerStyle={styles.horizontalList}
           >
-            {/* First playlist */}
-            <View style={styles.topPickCard}>
-              <Text style={styles.albumSubtitle}>
-                Made for You
-              </Text>
+            {/* Halloween After Dark */}
+            <Link href="/radio" asChild>
+              <Pressable style={styles.topPickCard}>
+                <Image
+                  source={halloween}
+                  style={styles.topPickImage}
+                />
 
-              <Text style={styles.albumTitle}>
-                Halloween After Dark
-              </Text>
+                <Text style={styles.albumSubtitle}>
+                  We Recommend
+                </Text>
 
-              <Text style={styles.albumArtist}>
-                Apple Music
-              </Text>
+                <Text style={styles.albumTitle}>
+                  Halloween After Dark
+                </Text>
 
-              <Image
-                source={ba}
-                style={styles.topPickImage}
-              />
-            </View>
+                <Text style={styles.albumArtist}>
+                  Get into the Halloween spirit with Apple Music.
+                </Text>
+              </Pressable>
+            </Link>
 
-            {/* Second playlist  */}
-            <View style={styles.topPickCard}>
-              <Text style={styles.albumSubtitle}>
-                Trending With Do...
-              </Text>
+            {/* HABIBTI */}
+            <Link href="/radio" asChild>
+              <Pressable style={styles.topPickCard}>
+                <Image
+                  source={habibti}
+                  style={styles.topPickImage}
+                />
 
-              <Text style={styles.albumTitle}>
-                HABIBTI (FOM...)
-              </Text>
+                <Text style={styles.albumSubtitle}>
+                  Trending With Do...
+                </Text>
 
-              <Text style={styles.albumArtist}>
-                Drake
-              </Text>
+                <Text style={styles.albumTitle}>
+                  HABIBTI (FOM...)
+                </Text>
 
-              <Image
-                source={habibti}
-                style={styles.topPickImage}
-              />
-            </View>
+                <Text style={styles.albumArtist}>
+                  Drake
+                </Text>
+              </Pressable>
+            </Link>
 
-            {/* Third playlist */}
-            <View style={styles.topPickCard}>
-              <Text style={styles.albumSubtitle}>
-                Recommended for You
-              </Text>
+            {/* Cold Shoulder */}
+            <Link href="/radio" asChild>
+              <Pressable style={styles.topPickCard}>
+                <Image
+                  source={coldShoulder}
+                  style={styles.topPickImage}
+                />
 
-              <Text style={styles.albumTitle}>
-                Cold Shoulder
-              </Text>
+                <Text style={styles.albumSubtitle}>
+                  Recommended for You
+                </Text>
 
-              <Text style={styles.albumArtist}>
-                Apple Music
-              </Text>
+                <Text style={styles.albumTitle}>
+                  Cold Shoulder
+                </Text>
 
-              <Image
-                source={coldShoulder}
-                style={styles.topPickImage}
-              />
-            </View>
+                <Text style={styles.albumArtist}>
+                  Apple Music
+                </Text>
+              </Pressable>
+            </Link>
           </ScrollView>
         </View>
 
-        {/* recently played */}
+        {/* RECENTLY PLAYED */}
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>
-            Recently Played
+            Recently Played ›
           </Text>
 
           <ScrollView
@@ -115,95 +121,101 @@ export default function HomeScreen() {
             showsHorizontalScrollIndicator={false}
             contentContainerStyle={styles.horizontalList}
           >
-            {/* Album 1 */}
-            <View style={styles.recentCard}>
-              <Image
-                source={excavator}
-                style={styles.recentImage}
-              />
+            {/* Excavator */}
+            <Link href="/radio" asChild>
+              <Pressable style={styles.recentCard}>
+                <Image
+                  source={excavator}
+                  style={styles.recentImage}
+                />
 
-              <Text
-                style={styles.recentTitle}
-                numberOfLines={1}
-              >
-                Excavator
-              </Text>
+                <Text
+                  style={styles.recentTitle}
+                  numberOfLines={1}
+                >
+                  Excavator
+                </Text>
 
-              <Text
-                style={styles.recentArtist}
-                numberOfLines={1}
-              >
-                Don Toliver
-              </Text>
-            </View>
+                <Text
+                  style={styles.recentArtist}
+                  numberOfLines={1}
+                >
+                  Don Toliver
+                </Text>
+              </Pressable>
+            </Link>
 
-            {/* Album 2 */}
-            <View style={styles.recentCard}>
-              <Image
-                source={ba}
-                style={styles.recentImage}
-              />
+            {/* Apple Radio */}
+            <Link href="/radio" asChild>
+              <Pressable style={styles.recentCard}>
+                <Image
+                  source={appleRadio}
+                  style={styles.recentImage}
+                />
 
-              <Text
-                style={styles.recentTitle}
-                numberOfLines={1}
-              >
-                Recently Played
-              </Text>
+                <Text
+                  style={styles.recentTitle}
+                  numberOfLines={1}
+                >
+                  Recently Played
+                </Text>
 
-              <Text style={styles.recentArtist}>
-                Apple Music
-              </Text>
-            </View>
+                <Text style={styles.recentArtist}>
+                  Apple Music
+                </Text>
+              </Pressable>
+            </Link>
 
-            {/* Album 3*/}
-            <View style={styles.recentCard}>
-              <Image
-                source={habibti}
-                style={styles.recentImage}
-              />
+            {/* HABIBTI */}
+            <Link href="/radio" asChild>
+              <Pressable style={styles.recentCard}>
+                <Image
+                  source={habibti}
+                  style={styles.recentImage}
+                />
 
-              <Text
-                style={styles.recentTitle}
-                numberOfLines={1}
-              >
-                HABIBTI
-              </Text>
+                <Text
+                  style={styles.recentTitle}
+                  numberOfLines={1}
+                >
+                  HABIBTI
+                </Text>
 
-              <Text style={styles.recentArtist}>
-                Drake
-              </Text>
-            </View>
+                <Text style={styles.recentArtist}>
+                  Drake
+                </Text>
+              </Pressable>
+            </Link>
 
-            {/* Album 4 */}
-            <View style={styles.recentCard}>
-              <Image
-                source={halfThePlot}
-                style={styles.recentImage}
-              />
+            {/* Half the Plot */}
+            <Link href="/radio" asChild>
+              <Pressable style={styles.recentCard}>
+                <Image
+                  source={halfThePlot}
+                  style={styles.recentImage}
+                />
 
-              <Text
-                style={styles.recentTitle}
-                numberOfLines={1}
-              >
-                Half the Plot
-              </Text>
+                <Text
+                  style={styles.recentTitle}
+                  numberOfLines={1}
+                >
+                  Half the Plot
+                </Text>
 
-              <Text style={styles.recentArtist}>
-                Recently Played
-              </Text>
-            </View>
+                <Text style={styles.recentArtist}>
+                  Recently Played
+                </Text>
+              </Pressable>
+            </Link>
           </ScrollView>
         </View>
       </ScrollView>
 
-      {/* Existing musix player */}
+      {/* Existing MiniPlayer */}
       <MiniPlayer />
     </SafeAreaView>
   );
 }
-
-// Styles
 
 const styles = StyleSheet.create({
   container: {
@@ -249,7 +261,7 @@ const styles = StyleSheet.create({
     width: 250,
     height: 250,
     borderRadius: 10,
-    marginTop: 12,
+    marginBottom: 12,
   },
 
   albumSubtitle: {
