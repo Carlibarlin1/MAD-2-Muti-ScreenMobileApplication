@@ -1,30 +1,209 @@
+
+import React from 'react';
 import {
   StyleSheet,
   Text,
   View,
   ScrollView,
+  Image,
 } from 'react-native';
 
 import { SafeAreaView } from 'react-native-safe-area-context';
 import MiniPlayer from '@/components/MiniPlayer';
 
+// Playlist and album images
+const habibti = require('../../assets/images/habibti.jpg');
+const excavator = require('../../assets/images/excavator.jpg');
+const coldShoulder = require('../../assets/images/cold-shoulder.jpg');
+const halfThePlot = require('../../assets/images/half-the-plot.jpg');
+const ba = require('../../assets/images/ba.jpg');
+
 export default function HomeScreen() {
   return (
-    <SafeAreaView style={styles.container} edges={['top']}>
-
-      <ScrollView showsVerticalScrollIndicator={false}>
+    <SafeAreaView
+      style={styles.container}
+      edges={['top']}
+    >
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={styles.scrollContent}
+      >
+        {/* Home heading */}
         <Text style={styles.title}>Home</Text>
 
-        <View style={styles.content}>
-          <Text style={styles.sectionTitle}>Recently Played</Text>
+        {/* Top Picks for you */}
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>
+            Top Picks for You
+          </Text>
+
+          <ScrollView
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            contentContainerStyle={styles.horizontalList}
+          >
+            {/* First playlist */}
+            <View style={styles.topPickCard}>
+              <Text style={styles.albumSubtitle}>
+                Made for You
+              </Text>
+
+              <Text style={styles.albumTitle}>
+                Halloween After Dark
+              </Text>
+
+              <Text style={styles.albumArtist}>
+                Apple Music
+              </Text>
+
+              <Image
+                source={ba}
+                style={styles.topPickImage}
+              />
+            </View>
+
+            {/* Second playlist  */}
+            <View style={styles.topPickCard}>
+              <Text style={styles.albumSubtitle}>
+                Trending With Do...
+              </Text>
+
+              <Text style={styles.albumTitle}>
+                HABIBTI (FOM...)
+              </Text>
+
+              <Text style={styles.albumArtist}>
+                Drake
+              </Text>
+
+              <Image
+                source={habibti}
+                style={styles.topPickImage}
+              />
+            </View>
+
+            {/* Third playlist */}
+            <View style={styles.topPickCard}>
+              <Text style={styles.albumSubtitle}>
+                Recommended for You
+              </Text>
+
+              <Text style={styles.albumTitle}>
+                Cold Shoulder
+              </Text>
+
+              <Text style={styles.albumArtist}>
+                Apple Music
+              </Text>
+
+              <Image
+                source={coldShoulder}
+                style={styles.topPickImage}
+              />
+            </View>
+          </ScrollView>
+        </View>
+
+        {/* recently played */}
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>
+            Recently Played
+          </Text>
+
+          <ScrollView
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            contentContainerStyle={styles.horizontalList}
+          >
+            {/* Album 1 */}
+            <View style={styles.recentCard}>
+              <Image
+                source={excavator}
+                style={styles.recentImage}
+              />
+
+              <Text
+                style={styles.recentTitle}
+                numberOfLines={1}
+              >
+                Excavator
+              </Text>
+
+              <Text
+                style={styles.recentArtist}
+                numberOfLines={1}
+              >
+                Don Toliver
+              </Text>
+            </View>
+
+            {/* Album 2 */}
+            <View style={styles.recentCard}>
+              <Image
+                source={ba}
+                style={styles.recentImage}
+              />
+
+              <Text
+                style={styles.recentTitle}
+                numberOfLines={1}
+              >
+                Recently Played
+              </Text>
+
+              <Text style={styles.recentArtist}>
+                Apple Music
+              </Text>
+            </View>
+
+            {/* Album 3*/}
+            <View style={styles.recentCard}>
+              <Image
+                source={habibti}
+                style={styles.recentImage}
+              />
+
+              <Text
+                style={styles.recentTitle}
+                numberOfLines={1}
+              >
+                HABIBTI
+              </Text>
+
+              <Text style={styles.recentArtist}>
+                Drake
+              </Text>
+            </View>
+
+            {/* Album 4 */}
+            <View style={styles.recentCard}>
+              <Image
+                source={halfThePlot}
+                style={styles.recentImage}
+              />
+
+              <Text
+                style={styles.recentTitle}
+                numberOfLines={1}
+              >
+                Half the Plot
+              </Text>
+
+              <Text style={styles.recentArtist}>
+                Recently Played
+              </Text>
+            </View>
+          </ScrollView>
         </View>
       </ScrollView>
 
+      {/* Existing musix player */}
       <MiniPlayer />
-
     </SafeAreaView>
   );
 }
+
+// Styles
 
 const styles = StyleSheet.create({
   container: {
@@ -32,22 +211,85 @@ const styles = StyleSheet.create({
     backgroundColor: '#000000',
   },
 
-  title: {
-    color: '#ffffff',
-    fontSize: 32,
-    fontWeight: 'bold',
-    marginHorizontal: 16,
-    marginTop: 8,
+  scrollContent: {
+    paddingBottom: 35,
   },
 
-  content: {
+  title: {
+    color: '#ffffff',
+    fontSize: 34,
+    fontWeight: 'bold',
     marginHorizontal: 16,
-    marginTop: 22,
+    marginTop: 12,
+    marginBottom: 22,
+  },
+
+  section: {
+    marginBottom: 30,
   },
 
   sectionTitle: {
     color: '#ffffff',
-    fontSize: 20,
+    fontSize: 22,
     fontWeight: 'bold',
+    marginHorizontal: 16,
+    marginBottom: 16,
+  },
+
+  horizontalList: {
+    paddingHorizontal: 16,
+    gap: 14,
+  },
+
+  topPickCard: {
+    width: 250,
+  },
+
+  topPickImage: {
+    width: 250,
+    height: 250,
+    borderRadius: 10,
+    marginTop: 12,
+  },
+
+  albumSubtitle: {
+    color: '#999999',
+    fontSize: 13,
+    marginBottom: 4,
+  },
+
+  albumTitle: {
+    color: '#ffffff',
+    fontSize: 17,
+    fontWeight: '600',
+    marginBottom: 3,
+  },
+
+  albumArtist: {
+    color: '#999999',
+    fontSize: 15,
+  },
+
+  recentCard: {
+    width: 155,
+  },
+
+  recentImage: {
+    width: 155,
+    height: 155,
+    borderRadius: 9,
+    marginBottom: 8,
+  },
+
+  recentTitle: {
+    color: '#ffffff',
+    fontSize: 15,
+    fontWeight: '500',
+  },
+
+  recentArtist: {
+    color: '#999999',
+    fontSize: 13,
+    marginTop: 3,
   },
 });
