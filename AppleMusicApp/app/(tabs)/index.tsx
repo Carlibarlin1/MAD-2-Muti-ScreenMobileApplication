@@ -43,7 +43,7 @@ export default function HomeScreen() {
             contentContainerStyle={styles.horizontalList}
           >
             {/* Halloween After Dark */}
-            <Link href="/radio" asChild>
+            <Link href="/library" asChild>
               <Pressable style={styles.topPickCard}>
                 <Image
                   source={halloween}
@@ -65,7 +65,6 @@ export default function HomeScreen() {
             </Link>
 
             {/* HABIBTI */}
-            <Link href="/radio" asChild>
               <Pressable style={styles.topPickCard}>
                 <Image
                   source={habibti}
@@ -84,10 +83,8 @@ export default function HomeScreen() {
                   Drake
                 </Text>
               </Pressable>
-            </Link>
 
             {/* Cold Shoulder */}
-            <Link href="/radio" asChild>
               <Pressable style={styles.topPickCard}>
                 <Image
                   source={coldShoulder}
@@ -106,7 +103,6 @@ export default function HomeScreen() {
                   Apple Music
                 </Text>
               </Pressable>
-            </Link>
           </ScrollView>
         </View>
 
@@ -122,7 +118,6 @@ export default function HomeScreen() {
             contentContainerStyle={styles.horizontalList}
           >
             {/* Excavator */}
-            <Link href="/radio" asChild>
               <Pressable style={styles.recentCard}>
                 <Image
                   source={excavator}
@@ -143,10 +138,8 @@ export default function HomeScreen() {
                   Don Toliver
                 </Text>
               </Pressable>
-            </Link>
 
             {/* Apple Radio */}
-            <Link href="/radio" asChild>
               <Pressable style={styles.recentCard}>
                 <Image
                   source={appleRadio}
@@ -164,10 +157,8 @@ export default function HomeScreen() {
                   Apple Music
                 </Text>
               </Pressable>
-            </Link>
 
             {/* HABIBTI */}
-            <Link href="/radio" asChild>
               <Pressable style={styles.recentCard}>
                 <Image
                   source={habibti}
@@ -185,10 +176,8 @@ export default function HomeScreen() {
                   Drake
                 </Text>
               </Pressable>
-            </Link>
 
             {/* Half the Plot */}
-            <Link href="/radio" asChild>
               <Pressable style={styles.recentCard}>
                 <Image
                   source={halfThePlot}
@@ -206,7 +195,6 @@ export default function HomeScreen() {
                   Recently Played
                 </Text>
               </Pressable>
-            </Link>
           </ScrollView>
         </View>
       </ScrollView>
