@@ -28,8 +28,9 @@ export default function NewScreen() {
                     <Text style={styles.featuredArtist}>Drake</Text>
 
                     <Image
-                        source={require('../../assets/images/habibti.jpg')}
+                        source={require('../../assets/images/Drake-Album-Photo.jpg')}
                         style={styles.featuredImage}
+                        resizeMode="contain"
                     />
 
                 </View>
@@ -169,7 +170,7 @@ const styles = StyleSheet.create({
 
     featuredImage: {
         width: '100%',
-        height: 300,
+        height: 190,
         borderRadius: 10,
     },
 
