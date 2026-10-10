@@ -19,7 +19,7 @@ const habibti = require('../../assets/images/habibti.jpg');
 const excavator = require('../../assets/images/excavator.jpg');
 const coldShoulder = require('../../assets/images/cold-shoulder.jpg');
 const halfThePlot = require('../../assets/images/half-the-plot.jpg');
-const appleRadio = require('../../assets/images/apple-radio.png');
+const appleRadio = require('../../assets/images/apple-radio.png.png');
 
 export default function HomeScreen() {
   return (
